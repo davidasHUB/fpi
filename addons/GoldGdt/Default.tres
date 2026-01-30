@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerParameters" load_steps=2 format=3 uid="uid://c770d2068in3p"]
+
+[ext_resource type="Script" uid="uid://sdnlimwljbl7" path="res://addons/GoldGdt/src/PlayerParameters.gd" id="1_wnsr5"]
+
+[resource]
+script = ExtResource("1_wnsr5")
+AUTOHOP = true
+FORWARD_SPEED = 12.375
+MAX_SPEED = 12.218
+JUMP_HEIGHT = 2.118
+STEP_HEIGHT = 0.947
+FRICTION = 6.0
+MOUSE_SENSITIVITY = 30.0

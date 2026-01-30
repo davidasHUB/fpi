@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://6u84h62ima1o"]
+
+[ext_resource type="Texture2D" uid="uid://bnhfjots7xshc" path="res://trenchbroom/textures/stone_1.png" id="1_d7jnh"]
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_w0caq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_w0caq")
+shader_parameter/albedo_map = ExtResource("1_d7jnh")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

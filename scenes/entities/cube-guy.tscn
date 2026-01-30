@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://drr5yl287dut5"]
+
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_vh15s"]
+[ext_resource type="Texture2D" uid="uid://8d0n8vy838f1" path="res://3d-models/bloob.png" id="2_vh15s"]
+[ext_resource type="ArrayMesh" uid="uid://ccnee06cwcvsk" path="res://3d-models/bloob.obj" id="3_u6ubw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w474d"]
+render_priority = 0
+shader = ExtResource("1_vh15s")
+shader_parameter/albedo_map = ExtResource("2_vh15s")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[node name="cube-guy" type="Node3D"]
+
+[node name="Bloob" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14390612, 0, -0.17288)
+material_override = SubResource("ShaderMaterial_w474d")
+mesh = ExtResource("3_u6ubw")

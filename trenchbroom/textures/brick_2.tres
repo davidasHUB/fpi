@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cuqhkr6vndqui"]
+
+[ext_resource type="Texture2D" uid="uid://dsf6jnyviml4t" path="res://trenchbroom/textures/brick_2.png" id="1_hgkn3"]
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_lgfm4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lgfm4")
+shader_parameter/albedo_map = ExtResource("1_hgkn3")
+shader_parameter/roughness = 0.58000002755
+shader_parameter/metallic = 0.6950000330125
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

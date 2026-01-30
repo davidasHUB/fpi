@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bmt7j0nc5gtws"]
+
+[ext_resource type="Texture2D" uid="uid://bb84liyaox74e" path="res://trenchbroom/textures/Plane-material.png" id="1_fwlpd"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_fwlpd")
+texture_filter = 2

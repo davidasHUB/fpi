@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b137cnc0ypv6t"]
+
+[ext_resource type="Texture2D" uid="uid://12uvqep7y8a6" path="res://trenchbroom/textures/castle-tile.png" id="1_e5fxk"]
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_qr8od"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qr8od")
+shader_parameter/albedo_map = ExtResource("1_e5fxk")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

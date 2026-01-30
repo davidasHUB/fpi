@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPC_DATA" load_steps=2 format=3 uid="uid://n77d26om80df"]
+
+[ext_resource type="Script" uid="uid://dwuxk7gdtmy34" path="res://resources/NPC-res.gd" id="1_ytc5p"]
+
+[resource]
+script = ExtResource("1_ytc5p")
+name = "junin"
+raw_text = Array[String](["eu sou o sans undertale"])
+frame = 1
+color = Color(1, 0.6225886, 0.6654728, 1)
+metadata/_custom_type_script = "uid://dwuxk7gdtmy34"

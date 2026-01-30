@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" load_steps=4 format=3 uid="uid://bu8x0mrvrxojd"]
+
+[ext_resource type="PackedScene" uid="uid://cbatce3fa0vi" path="res://scenes/entities/player/player.tscn" id="1_fad6x"]
+[ext_resource type="Script" uid="uid://ldfqjtq0br35" path="res://addons/func_godot/src/fgd/func_godot_fgd_model_point_class.gd" id="1_oj13c"]
+[ext_resource type="Script" uid="uid://setemt15nq6c" path="res://trenchbroom/scripts/player_init.gd" id="3_4yhth"]
+
+[resource]
+script = ExtResource("1_oj13c")
+target_map_editor = 1
+generate_size_property = true
+scene_file = ExtResource("1_fad6x")
+script_class = ExtResource("3_4yhth")
+apply_rotation_on_map_build = false
+classname = "player"
+description = "player..."
+class_properties = {
+"angle": 0.0
+}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"model": "\"trenchbroom/models/player.glb\"",
+"size": AABB(-16, -16, -28, 16, 16, 36)
+}
+metadata/_custom_type_script = "uid://ldfqjtq0br35"

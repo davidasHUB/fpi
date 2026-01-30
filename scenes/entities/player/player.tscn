@@ -1,0 +1,421 @@
+[gd_scene format=3 uid="uid://cbatce3fa0vi"]
+
+[ext_resource type="Script" uid="uid://iskw58sbg8ok" path="res://addons/GoldGdt/src/GoldGdt_Pawn.gd" id="1_dvp4d"]
+[ext_resource type="Shader" uid="uid://tbsaf1arx0cp" path="res://shaders/pallet.gdshader" id="2_ovg4i"]
+[ext_resource type="Texture2D" uid="uid://djmok2jjrl8fm" path="res://images/LUT.png" id="3_7wli1"]
+[ext_resource type="Script" uid="uid://qbaul40tywos" path="res://addons/GoldGdt/src/GoldGdt_Controls.gd" id="3_a7g5n"]
+[ext_resource type="FontFile" uid="uid://170ru3oqykro" path="res://fonts/Salmon Typewriter 9 Bold.ttf" id="4_7wli1"]
+[ext_resource type="Texture2D" uid="uid://88w7q7re6mj5" path="res://images/sprites/player-face-sheet.png" id="4_j0oqr"]
+[ext_resource type="Resource" uid="uid://c770d2068in3p" path="res://addons/GoldGdt/Default.tres" id="4_larsm"]
+[ext_resource type="Script" uid="uid://bnp46i8d3f4gj" path="res://scripts/UX/ui.gd" id="4_xy2vv"]
+[ext_resource type="Texture2D" uid="uid://b5eshswp8hw8a" path="res://images/sprites/UI.png" id="5_70kwc"]
+[ext_resource type="Script" uid="uid://c01ous22fagpg" path="res://addons/GoldGdt/src/GoldGdt_View.gd" id="5_tsy60"]
+[ext_resource type="Script" uid="uid://d1don0uoy510k" path="res://addons/GoldGdt/src/GoldGdt_Move.gd" id="6_35h21"]
+[ext_resource type="Script" uid="uid://bftu2d4133h8h" path="res://addons/GoldGdt/src/GoldGdt_Body.gd" id="7_k8njr"]
+[ext_resource type="FontFile" uid="uid://bvyvqvhjvyq01" path="res://fonts/Salmon Typewriter 9 Regular.ttf" id="7_yywfu"]
+[ext_resource type="Script" uid="uid://cuswqvf7i6yjm" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="8_24gbh"]
+[ext_resource type="Texture2D" uid="uid://dqy26yxds83yo" path="res://trenchbroom/textures/road-texture.png" id="8_j0oqr"]
+[ext_resource type="Script" uid="uid://dtqdf2soxdu2h" path="res://scenes/entities/player/talking.gd" id="9_pcd0u"]
+[ext_resource type="Script" uid="uid://pm55ckmuxe1w" path="res://scenes/entities/player/player_colision.gd" id="12_r4dfn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_70kwc"]
+font = ExtResource("4_7wli1")
+font_size = 27
+font_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.37254903, 0.37254903, 0.37254903, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pcd0u"]
+font = ExtResource("7_yywfu")
+font_size = 18
+shadow_size = 3
+shadow_color = Color(9.765625e-06, 9.765625e-06, 9.765625e-06, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0oqr"]
+font = ExtResource("4_7wli1")
+font_size = 9
+font_color = Color(1, 0.13, 0.13, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_70kwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("text:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("text:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xy2vv"]
+resource_name = "grove"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("text:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5120045, 2.9209177),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(2, 2), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("text:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.9209177),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.51487213, 0.43458697]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.51, 2.6333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(1, 1), Vector2i(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yywfu"]
+_data = {
+&"RESET": SubResource("Animation_70kwc"),
+&"grove": SubResource("Animation_xy2vv")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4dfn"]
+font = ExtResource("4_7wli1")
+font_size = 27
+shadow_size = 10
+shadow_color = Color(0.09519022, 0.07585061, 0.6286185, 0.3529412)
+shadow_offset = Vector2(1.045, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0oqr"]
+shader = ExtResource("2_ovg4i")
+shader_parameter/LUT = ExtResource("3_7wli1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70kwc"]
+size = Vector3(0.813, 1.829, 0.813)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7pn1"]
+size = Vector3(0.813, 1.829, 0.813)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vbs6i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovg4i"]
+albedo_texture = ExtResource("8_j0oqr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u4rs7"]
+custom_solver_bias = 1.0
+margin = 0.25
+radius = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcd0u"]
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_w3p2j"]
+material = SubResource("StandardMaterial3D_pcd0u")
+
+[node name="Pawn" type="Node3D" unique_id=1861296095 node_paths=PackedStringArray("View", "Camera")]
+script = ExtResource("1_dvp4d")
+View = NodePath("View Control")
+Camera = NodePath("Interpolated Camera")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1042477963]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1130650564 node_paths=PackedStringArray("body")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_xy2vv")
+body = NodePath("../../User Input")
+
+[node name="Text-box" type="Control" parent="CanvasLayer/UI" unique_id=27469388]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI/Text-box" unique_id=68317692]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 253.0
+offset_right = 614.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_70kwc")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="name" type="Control" parent="CanvasLayer/UI/Text-box/NinePatchRect" unique_id=13072109]
+layout_mode = 1
+anchor_right = 0.14
+anchor_bottom = 0.34500003
+offset_left = 9.0
+offset_top = 10.0
+offset_right = -36.08
+offset_bottom = -19.670002
+
+[node name="text_name" type="Label" parent="CanvasLayer/UI/Text-box/NinePatchRect/name" unique_id=1471370109]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -7.0
+offset_right = 620.0
+offset_bottom = 29.0
+text = "..."
+label_settings = SubResource("LabelSettings_70kwc")
+
+[node name="text" type="Control" parent="CanvasLayer/UI/Text-box/NinePatchRect" unique_id=1049022783]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="text_info" type="Label" parent="CanvasLayer/UI/Text-box/NinePatchRect/text" unique_id=1868620211]
+layout_mode = 0
+offset_left = -309.0
+offset_top = -20.5
+offset_right = 310.0
+offset_bottom = 57.5
+text = "none"
+label_settings = SubResource("LabelSettings_pcd0u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+visible_characters_behavior = 1
+
+[node name="Face" type="Sprite2D" parent="CanvasLayer/UI" unique_id=571314509]
+position = Vector2(56.000004, 57)
+scale = Vector2(2.9722223, 3.0833333)
+texture = ExtResource("4_j0oqr")
+hframes = 5
+vframes = 10
+frame = 1
+
+[node name="text" type="Node2D" parent="CanvasLayer/UI" unique_id=912218647]
+position = Vector2(167, 46)
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/text" unique_id=1588521840]
+offset_left = -44.0
+offset_top = -18.0
+offset_right = 44.0
+offset_bottom = 18.0
+size_flags_horizontal = 4
+text = "FREE-ME"
+label_settings = SubResource("LabelSettings_j0oqr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=1036203736]
+libraries/ = SubResource("AnimationLibrary_yywfu")
+autoplay = &"grove"
+
+[node name="use-display-text" type="Node2D" parent="CanvasLayer/UI" unique_id=1750149683]
+position = Vector2(320, 170)
+
+[node name="text-show" type="Label" parent="CanvasLayer/UI/use-display-text" unique_id=1484905301]
+offset_left = -44.0
+offset_top = -18.0
+offset_right = 44.0
+offset_bottom = 18.0
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_r4dfn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=319736536]
+material = SubResource("ShaderMaterial_j0oqr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="aim" type="ColorRect" parent="CanvasLayer" unique_id=1069193576]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Talking" type="Node" parent="." unique_id=492061685]
+script = ExtResource("9_pcd0u")
+
+[node name="User Input" type="Node" parent="." unique_id=1439161985 node_paths=PackedStringArray("Body", "Move", "View", "ray", "talk_area")]
+script = ExtResource("3_a7g5n")
+Parameters = ExtResource("4_larsm")
+Body = NodePath("../Body")
+Move = NodePath("../Move Functions")
+View = NodePath("../View Control")
+ray = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/Hit-scan")
+talk_area = NodePath("../Body/player-colision")
+
+[node name="View Control" type="Node" parent="." unique_id=1096106100 node_paths=PackedStringArray("Body", "horizontal_view", "vertical_view", "camera_mount")]
+script = ExtResource("5_tsy60")
+Parameters = ExtResource("4_larsm")
+Body = NodePath("../Body")
+horizontal_view = NodePath("../Body/Horizontal View")
+vertical_view = NodePath("../Body/Horizontal View/Vertical View")
+camera_mount = NodePath("../Body/Horizontal View/Vertical View/Camera Mount")
+
+[node name="Move Functions" type="Node" parent="." unique_id=1430653325 node_paths=PackedStringArray("Body")]
+script = ExtResource("6_35h21")
+Parameters = ExtResource("4_larsm")
+Body = NodePath("../Body")
+
+[node name="Body" type="CharacterBody3D" parent="." unique_id=899272039 node_paths=PackedStringArray("View", "collision_hull", "duck_timer")]
+visible = false
+collision_layer = 2
+floor_constant_speed = true
+script = ExtResource("7_k8njr")
+Parameters = ExtResource("4_larsm")
+View = NodePath("../View Control")
+collision_hull = NodePath("Collision Hull")
+duck_timer = NodePath("Duck Timer")
+
+[node name="player-colision" type="Area3D" parent="Body" unique_id=1359892509 node_paths=PackedStringArray("ui") groups=["player"]]
+script = ExtResource("12_r4dfn")
+ui = NodePath("../../CanvasLayer/UI")
+
+[node name="colision" type="CollisionShape3D" parent="Body/player-colision" unique_id=1325329769]
+shape = SubResource("BoxShape3D_70kwc")
+debug_color = Color(3.754999, 0, 0.8104584, 0.41960785)
+
+[node name="Collision Hull" type="CollisionShape3D" parent="Body" unique_id=1003068228]
+shape = SubResource("BoxShape3D_j7pn1")
+
+[node name="Duck Timer" type="Timer" parent="Body" unique_id=1511723695]
+
+[node name="Horizontal View" type="Node3D" parent="Body" unique_id=1870639091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711, 0)
+
+[node name="Vertical View" type="Node3D" parent="Body/Horizontal View" unique_id=683802524]
+
+[node name="Camera Mount" type="Marker3D" parent="Body/Horizontal View/Vertical View" unique_id=1548871908]
+gizmo_extents = 0.5
+
+[node name="player-mesh" type="MeshInstance3D" parent="Body" unique_id=608899940]
+mesh = SubResource("CapsuleMesh_vbs6i")
+surface_material_override/0 = SubResource("StandardMaterial3D_ovg4i")
+
+[node name="Interpolated Camera" type="Node3D" parent="." unique_id=2073820133 node_paths=PackedStringArray("target", "camera_arm", "camera_anchor", "camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711, 0)
+script = ExtResource("8_24gbh")
+Parameters = ExtResource("4_larsm")
+target = NodePath("../Body/Horizontal View/Vertical View/Camera Mount")
+camera_arm = NodePath("Arm")
+camera_anchor = NodePath("Arm/Arm Anchor")
+camera = NodePath("Arm/Arm Anchor/Camera")
+
+[node name="Arm" type="SpringArm3D" parent="Interpolated Camera" unique_id=2140716967]
+shape = SubResource("SphereShape3D_u4rs7")
+spring_length = 0.0
+margin = 0.1
+
+[node name="Arm Anchor" type="Node3D" parent="Interpolated Camera/Arm" unique_id=143520030]
+editor_description = "
+"
+
+[node name="Camera" type="Camera3D" parent="Interpolated Camera/Arm/Arm Anchor" unique_id=1193035010]
+fov = 105.0
+near = 0.001
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1365073444]
+transform = Transform3D(0.9649799, 0, -0.26232392, 0, 1, 0, 0.26232392, 0, 0.9649799, 0, 0, -0.46917534)
+visible = false
+light_color = Color(0.4969692, 0.4969692, 0.4969692, 1)
+light_energy = 2.32
+shadow_enabled = true
+spot_range = 24.43
+spot_attenuation = -0.8
+spot_angle = 64.97
+
+[node name="Hit-scan" type="RayCast3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=506102027]
+target_position = Vector3(0, 0, -100)
+collide_with_areas = true
+
+[node name="GPUParticles3D" type="CPUParticles3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=2017518777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711, 0)
+amount = 20
+lifetime = 3.0
+mesh = SubResource("QuadMesh_w3p2j")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector3(0, 20, 0)
+spread = 0.0
+flatness = 1.0
+gravity = Vector3(0, 10, 0)
+initial_velocity_max = 24.17
+angular_velocity_min = -148.46
+angular_velocity_max = -148.46
+damping_min = 2.062
+damping_max = 2.062
+scale_amount_min = 0.0

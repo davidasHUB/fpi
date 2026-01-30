@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cdj05iaco74q0"]
+
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_2rnx8"]
+[ext_resource type="Texture2D" uid="uid://c1yfr5qly0g2v" path="res://trenchbroom/textures/concrete_floor_1.png" id="1_7uuxn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2rnx8")
+shader_parameter/posterize_levels = 16
+shader_parameter/albedo_map = ExtResource("1_7uuxn")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

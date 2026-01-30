@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://vk6xejxx7f0x"]
+
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_5b87m"]
+[ext_resource type="Texture2D" uid="uid://6eixkyebfsfm" path="res://trenchbroom/textures/grass_1.png" id="1_g77hg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5b87m")
+shader_parameter/albedo_map = ExtResource("1_g77hg")
+shader_parameter/roughness = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

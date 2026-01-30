@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=7 format=3 uid="uid://dh4d1y7uml08d"]
+
+[ext_resource type="Script" uid="uid://drlmgulwbjwqu" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_g0rlk"]
+[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_j1lx8"]
+[ext_resource type="Resource" uid="uid://bu8x0mrvrxojd" path="res://trenchbroom/3d_ent/player.tres" id="2_hnwpu"]
+[ext_resource type="Resource" uid="uid://dhwfea0kb2ibj" path="res://trenchbroom/3d_ent/NPC1.tres" id="3_3ps4t"]
+[ext_resource type="Resource" uid="uid://bgon020yuj54m" path="res://trenchbroom/3d_ent/save.tres" id="4_ln2ca"]
+[ext_resource type="Resource" uid="uid://k2w84jbdwbgc" path="res://addons/func_godot/fgd/target.tres" id="5_5y0tt"]
+
+[resource]
+script = ExtResource("1_g0rlk")
+fgd_name = "FPI"
+base_fgd_files = Array[Resource]([ExtResource("1_j1lx8")])
+entity_definitions = Array[Resource]([ExtResource("2_hnwpu"), ExtResource("3_3ps4t"), ExtResource("4_ln2ca"), ExtResource("5_5y0tt")])
+metadata/_custom_type_script = "uid://drlmgulwbjwqu"

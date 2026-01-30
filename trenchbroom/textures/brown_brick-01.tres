@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cpql8g1kq6shi"]
+
+[ext_resource type="Texture2D" uid="uid://cbbrwiyi6gvhy" path="res://trenchbroom/textures/brown_brick-01.png" id="1_udy7y"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_udy7y")
+texture_filter = 2

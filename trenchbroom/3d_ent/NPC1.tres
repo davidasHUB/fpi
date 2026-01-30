@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" load_steps=4 format=3 uid="uid://dhwfea0kb2ibj"]
+
+[ext_resource type="Script" uid="uid://ldfqjtq0br35" path="res://addons/func_godot/src/fgd/func_godot_fgd_model_point_class.gd" id="1_ckkui"]
+[ext_resource type="PackedScene" uid="uid://mny16i8d050p" path="res://scenes/entities/ghost_test.tscn" id="1_i40im"]
+[ext_resource type="Script" uid="uid://ciec2lyhqqkpq" path="res://trenchbroom/scripts/npc-init.gd" id="3_27202"]
+
+[resource]
+script = ExtResource("1_ckkui")
+target_map_editor = 1
+generate_size_property = true
+scene_file = ExtResource("1_i40im")
+script_class = ExtResource("3_27202")
+apply_rotation_on_map_build = false
+classname = "NPC"
+description = "a non playable character, used as a from to express the a person in a video game"
+class_properties = {
+"res": "test"
+}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"model": "\"trenchbroom/models/NPC.glb\"",
+"size": AABB(-16, -16, -16, 16, 16, 16)
+}
+metadata/_custom_type_script = "uid://ldfqjtq0br35"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2sp4wwo1x0lw"]
+
+[ext_resource type="ArrayMesh" uid="uid://di5br3im6iu74" path="res://3d-models/sign.obj" id="1_gaim6"]
+[ext_resource type="Material" uid="uid://bp7m8vo6s4x15" path="res://3d-models/save_game.tres" id="2_5pwie"]
+
+[node name="save-game" type="Node3D"]
+
+[node name="Sign" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_gaim6")
+surface_material_override/0 = ExtResource("2_5pwie")

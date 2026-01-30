@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://covecdja14fgo"]
+
+[ext_resource type="Texture2D" uid="uid://dqy26yxds83yo" path="res://trenchbroom/textures/road-texture.png" id="1_4338c"]
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_det6x"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_det6x")
+shader_parameter/posterize_levels = 16
+shader_parameter/albedo_map = ExtResource("1_4338c")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

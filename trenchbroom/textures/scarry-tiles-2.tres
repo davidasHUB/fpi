@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bhdubg2bptuuu"]
+
+[ext_resource type="Texture2D" uid="uid://boy3gpcbfvf1v" path="res://trenchbroom/textures/scarry-tiles-2.png" id="1_t5rtf"]
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_ta3vq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ta3vq")
+shader_parameter/albedo_map = ExtResource("1_t5rtf")
+shader_parameter/roughness = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

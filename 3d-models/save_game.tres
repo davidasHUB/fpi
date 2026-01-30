@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bp7m8vo6s4x15"]
+
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="1_5k5e5"]
+[ext_resource type="Texture2D" uid="uid://ta7d5vbrw42x" path="res://3d-models/sign.png" id="1_fk8fn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5k5e5")
+shader_parameter/albedo_map = ExtResource("1_fk8fn")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

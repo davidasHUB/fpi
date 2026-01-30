@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrenchBroomGameConfig" load_steps=7 format=3 uid="uid://djrbnkcvrkh5s"]
+
+[ext_resource type="Resource" uid="uid://b4xhdj0e16lop" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_clip.tres" id="1_6gur7"]
+[ext_resource type="Resource" uid="uid://ca7377sfgj074" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_skip.tres" id="2_ecq3l"]
+[ext_resource type="Resource" uid="uid://bkjxc54mmdhbo" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_origin.tres" id="3_wkg60"]
+[ext_resource type="Resource" uid="uid://dh4d1y7uml08d" path="res://trenchbroom/FGD.tres" id="4_6gur7"]
+[ext_resource type="Texture2D" uid="uid://vhq8nqcj16v4" path="res://icon.png" id="5_ecq3l"]
+[ext_resource type="Script" uid="uid://cx44c4vnq8bt5" path="res://addons/func_godot/src/trenchbroom/trenchbroom_game_config.gd" id="6_v44f6"]
+
+[resource]
+script = ExtResource("6_v44f6")
+game_name = "FPI"
+icon = ExtResource("5_ecq3l")
+fgd_file = ExtResource("4_6gur7")
+metadata/_custom_type_script = "uid://cx44c4vnq8bt5"

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://mny16i8d050p"]
+
+[ext_resource type="Shader" uid="uid://m15k1lg0oqe2" path="res://shaders/per_texel_bill.gdshader" id="1_61g74"]
+[ext_resource type="Texture2D" uid="uid://c3cngmtgvnb5o" path="res://images/sprites/ghost.png" id="1_ahre2"]
+[ext_resource type="Script" uid="uid://cro8ohqav0x0x" path="res://scenes/entities/ghost_test.gd" id="1_g2cxi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61g74"]
+render_priority = 0
+shader = ExtResource("1_61g74")
+shader_parameter/albedo_map = ExtResource("1_ahre2")
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_ahre2")
+shader_parameter/albedo_texture_size = Vector2i(224, 32)
+shader_parameter/point_size = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61g74"]
+size = Vector3(1.4571533, 1, 1.7000122)
+
+[sub_resource type="SphereMesh" id="SphereMesh_61g74"]
+
+[node name="ghost-test" type="Node3D"]
+script = ExtResource("1_g2cxi")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.5, 0)
+material_override = SubResource("ShaderMaterial_61g74")
+pixel_size = 0.04
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_ahre2")
+hframes = 7
+
+[node name="NPC-area" type="Area3D" parent="." groups=["NPC"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC-area"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_61g74")
+
+[node name="point" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_61g74")
+
+[connection signal="area_entered" from="NPC-area" to="." method="_on_npc_area_entered"]
+[connection signal="area_exited" from="NPC-area" to="." method="_on_npc_area_exited"]

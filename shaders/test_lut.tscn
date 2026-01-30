@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://syrwc1fhmais"]
+
+[ext_resource type="Shader" uid="uid://dff412qwsbm8d" path="res://test.gdshader" id="1_6t4sy"]
+[ext_resource type="Texture2D" uid="uid://djmok2jjrl8fm" path="res://images/LUT.png" id="2_mfyrw"]
+[ext_resource type="Texture2D" uid="uid://bhrkl5vx5jhjf" path="res://icon.svg" id="3_6t4sy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ara2a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnb2m"]
+render_priority = 0
+shader = ExtResource("1_6t4sy")
+shader_parameter/albedo_map = ExtResource("3_6t4sy")
+shader_parameter/LUT = ExtResource("2_mfyrw")
+shader_parameter/modu = Color(1.6157476, 1.0277889, 0.7462566, 1)
+
+[node name="TEST_LUT" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_ara2a")
+surface_material_override/0 = SubResource("ShaderMaterial_vnb2m")
