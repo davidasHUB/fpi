@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dqy26yxds83yo" path="res://trenchbroom/textures/road-texture.png" id="8_j0oqr"]
 [ext_resource type="Script" uid="uid://dtqdf2soxdu2h" path="res://scenes/entities/player/talking.gd" id="9_pcd0u"]
 [ext_resource type="Script" uid="uid://pm55ckmuxe1w" path="res://scenes/entities/player/player_colision.gd" id="12_r4dfn"]
+[ext_resource type="ArrayMesh" uid="uid://bops6d6eutrmq" path="res://3d-models/GUN.obj" id="18_18p7g"]
+[ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="19_fg2wu"]
+[ext_resource type="Texture2D" uid="uid://b74pvwcm5m5sy" path="res://3d-models/gun.png" id="20_7dqom"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_70kwc"]
 font = ExtResource("4_7wli1")
@@ -157,6 +160,15 @@ billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_w3p2j"]
 material = SubResource("StandardMaterial3D_pcd0u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_go8vc"]
+render_priority = 0
+shader = ExtResource("19_fg2wu")
+shader_parameter/albedo_map = ExtResource("20_7dqom")
+shader_parameter/roughness = 0.0
+shader_parameter/metallic = 0.174000008265
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
 
 [node name="Pawn" type="Node3D" unique_id=1861296095 node_paths=PackedStringArray("View", "Camera")]
 script = ExtResource("1_dvp4d")
@@ -390,13 +402,14 @@ near = 0.001
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1365073444]
 transform = Transform3D(0.9649799, 0, -0.26232392, 0, 1, 0, 0.26232392, 0, 0.9649799, 0, 0, -0.46917534)
-visible = false
-light_color = Color(0.4969692, 0.4969692, 0.4969692, 1)
-light_energy = 2.32
+light_color = Color(0.9924241, 0.921655, 0.9578783, 1)
+light_energy = 4.837
+light_indirect_energy = 0.0
 shadow_enabled = true
-spot_range = 24.43
-spot_attenuation = -0.8
-spot_angle = 64.97
+spot_range = 32.335
+spot_attenuation = -0.35
+spot_angle = 88.23
+spot_angle_attenuation = 1.4640862
 
 [node name="Hit-scan" type="RayCast3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=506102027]
 target_position = Vector3(0, 0, -100)
@@ -419,3 +432,11 @@ angular_velocity_max = -148.46
 damping_min = 2.062
 damping_max = 2.062
 scale_amount_min = 0.0
+
+[node name="Gun" type="MeshInstance3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1848298055]
+transform = Transform3D(-0.09956584, 0, -0.009308308, 0, 0.09999997, 0, 0.009308308, 0, -0.09956584, 0.52564466, -0.2773856, -0.5763388)
+cast_shadow = 0
+gi_mode = 0
+mesh = ExtResource("18_18p7g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_go8vc")
