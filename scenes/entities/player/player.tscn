@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://djmok2jjrl8fm" path="res://images/LUT.png" id="3_7wli1"]
 [ext_resource type="Script" uid="uid://qbaul40tywos" path="res://addons/GoldGdt/src/GoldGdt_Controls.gd" id="3_a7g5n"]
 [ext_resource type="FontFile" uid="uid://170ru3oqykro" path="res://fonts/Salmon Typewriter 9 Bold.ttf" id="4_7wli1"]
-[ext_resource type="Texture2D" uid="uid://88w7q7re6mj5" path="res://images/sprites/player-face-sheet.png" id="4_j0oqr"]
 [ext_resource type="Resource" uid="uid://c770d2068in3p" path="res://addons/GoldGdt/Default.tres" id="4_larsm"]
 [ext_resource type="Script" uid="uid://bnp46i8d3f4gj" path="res://scripts/UX/ui.gd" id="4_xy2vv"]
 [ext_resource type="Texture2D" uid="uid://b5eshswp8hw8a" path="res://images/sprites/UI.png" id="5_70kwc"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dtqdf2soxdu2h" path="res://scenes/entities/player/talking.gd" id="9_pcd0u"]
 [ext_resource type="Script" uid="uid://pm55ckmuxe1w" path="res://scenes/entities/player/player_colision.gd" id="12_r4dfn"]
 [ext_resource type="ArrayMesh" uid="uid://bops6d6eutrmq" path="res://3d-models/GUN.obj" id="18_18p7g"]
+[ext_resource type="Script" uid="uid://cy42icsadvyvm" path="res://scenes/entities/player/gun_base.gd" id="18_fg2wu"]
 [ext_resource type="Shader" uid="uid://dmq76t2eeqe11" path="res://shaders/per_texel_light.gdshader" id="19_fg2wu"]
 [ext_resource type="Texture2D" uid="uid://b74pvwcm5m5sy" path="res://3d-models/gun.png" id="20_7dqom"]
 
@@ -38,95 +38,9 @@ shadow_color = Color(9.765625e-06, 9.765625e-06, 9.765625e-06, 1)
 font = ExtResource("4_7wli1")
 font_size = 9
 font_color = Color(1, 0.13, 0.13, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
-
-[sub_resource type="Animation" id="Animation_70kwc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("text:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("text:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Face:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_xy2vv"]
-resource_name = "grove"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("text:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5120045, 2.9209177),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(2, 2), Vector2(3, 3)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("text:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.9209177),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.51487213, 0.43458697]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Face:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.51, 2.6333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(1, 0), Vector2i(1, 1), Vector2i(1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yywfu"]
-_data = {
-&"RESET": SubResource("Animation_70kwc"),
-&"grove": SubResource("Animation_xy2vv")
-}
 
 [sub_resource type="LabelSettings" id="LabelSettings_r4dfn"]
 font = ExtResource("4_7wli1")
@@ -155,12 +69,6 @@ custom_solver_bias = 1.0
 margin = 0.25
 radius = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcd0u"]
-billboard_mode = 2
-
-[sub_resource type="QuadMesh" id="QuadMesh_w3p2j"]
-material = SubResource("StandardMaterial3D_pcd0u")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go8vc"]
 render_priority = 0
 shader = ExtResource("19_fg2wu")
@@ -169,6 +77,97 @@ shader_parameter/roughness = 0.0
 shader_parameter/metallic = 0.174000008265
 shader_parameter/uv_tiling = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_18p7g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.52564466, -0.2773856, -0.5763388)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/Gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.3329547, -2.966921, -0.051812664)]
+}
+
+[sub_resource type="Animation" id="Animation_fg2wu"]
+resource_name = "idle"
+length = 2.0333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.52564466, -0.2773856, -0.5763388), Vector3(0.526, -0.212, -0.576), Vector3(0.52564466, -0.2773856, -0.5763388)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/Gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.73333335, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.3329547, -2.966921, -0.051812664), Vector3(-0.42062435, -2.9670596, -0.05235988), Vector3(-0.3329547, -2.966921, -0.051812664)]
+}
+
+[sub_resource type="Animation" id="Animation_7dqom"]
+resource_name = "shot"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/Gun:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.52564466, -0.2773856, -0.5763388), Vector3(0.52564466, -0.2773856, -0.5163858), Vector3(0.52564466, -0.2773856, -0.5763388)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/Gun:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.3329547, -2.966921, -0.051812664), Vector3(-0.6615355, -2.9319096, -0.12419839), Vector3(-0.3329547, -2.966921, -0.051812664)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_go8vc"]
+_data = {
+&"RESET": SubResource("Animation_18p7g"),
+&"idle": SubResource("Animation_fg2wu"),
+&"shot": SubResource("Animation_7dqom")
+}
 
 [node name="Pawn" type="Node3D" unique_id=1861296095 node_paths=PackedStringArray("View", "Camera")]
 script = ExtResource("1_dvp4d")
@@ -187,6 +186,7 @@ body = NodePath("../../User Input")
 
 [node name="Text-box" type="Control" parent="CanvasLayer/UI" unique_id=27469388]
 visible = false
+modulate = Color(1, 1, 1, 0.5568628)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -254,32 +254,29 @@ autowrap_mode = 3
 clip_text = true
 visible_characters_behavior = 1
 
-[node name="Face" type="Sprite2D" parent="CanvasLayer/UI" unique_id=571314509]
-position = Vector2(56.000004, 57)
-scale = Vector2(2.9722223, 3.0833333)
-texture = ExtResource("4_j0oqr")
-hframes = 5
-vframes = 10
-frame = 1
-
 [node name="text" type="Node2D" parent="CanvasLayer/UI" unique_id=912218647]
-position = Vector2(167, 46)
+position = Vector2(57, 61)
+scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/text" unique_id=1588521840]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -44.0
 offset_top = -18.0
 offset_right = 44.0
 offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
-text = "FREE-ME"
+text = "HP
+"
 label_settings = SubResource("LabelSettings_j0oqr")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=1036203736]
-libraries/ = SubResource("AnimationLibrary_yywfu")
-autoplay = &"grove"
 
 [node name="use-display-text" type="Node2D" parent="CanvasLayer/UI" unique_id=1750149683]
 position = Vector2(320, 170)
@@ -296,6 +293,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=319736536]
+visible = false
 material = SubResource("ShaderMaterial_j0oqr")
 anchors_preset = 15
 anchor_right = 1.0
@@ -321,14 +319,14 @@ size_flags_vertical = 4
 [node name="Talking" type="Node" parent="." unique_id=492061685]
 script = ExtResource("9_pcd0u")
 
-[node name="User Input" type="Node" parent="." unique_id=1439161985 node_paths=PackedStringArray("Body", "Move", "View", "ray", "talk_area")]
+[node name="User Input" type="Node" parent="." unique_id=1439161985 node_paths=PackedStringArray("Body", "Move", "View", "talk_area", "gun_base")]
 script = ExtResource("3_a7g5n")
 Parameters = ExtResource("4_larsm")
 Body = NodePath("../Body")
 Move = NodePath("../Move Functions")
 View = NodePath("../View Control")
-ray = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/Hit-scan")
 talk_area = NodePath("../Body/player-colision")
+gun_base = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base")
 
 [node name="View Control" type="Node" parent="." unique_id=1096106100 node_paths=PackedStringArray("Body", "horizontal_view", "vertical_view", "camera_mount")]
 script = ExtResource("5_tsy60")
@@ -400,43 +398,26 @@ editor_description = "
 fov = 105.0
 near = 0.001
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1365073444]
-transform = Transform3D(0.9649799, 0, -0.26232392, 0, 1, 0, 0.26232392, 0, 0.9649799, 0, 0, -0.46917534)
-light_color = Color(0.9924241, 0.921655, 0.9578783, 1)
-light_energy = 4.837
-light_indirect_energy = 0.0
-shadow_enabled = true
-spot_range = 32.335
-spot_attenuation = -0.35
-spot_angle = 88.23
-spot_angle_attenuation = 1.4640862
-
 [node name="Hit-scan" type="RayCast3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=506102027]
 target_position = Vector3(0, 0, -100)
 collide_with_areas = true
 
-[node name="GPUParticles3D" type="CPUParticles3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=2017518777]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711, 0)
-amount = 20
-lifetime = 3.0
-mesh = SubResource("QuadMesh_w3p2j")
-emission_shape = 1
-emission_sphere_radius = 128.0
-direction = Vector3(0, 20, 0)
-spread = 0.0
-flatness = 1.0
-gravity = Vector3(0, 10, 0)
-initial_velocity_max = 24.17
-angular_velocity_min = -148.46
-angular_velocity_max = -148.46
-damping_min = 2.062
-damping_max = 2.062
-scale_amount_min = 0.0
+[node name="Gun-Base" type="Node3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1647281956 node_paths=PackedStringArray("ray", "gun_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17, 0)
+script = ExtResource("18_fg2wu")
+ray = NodePath("../Hit-scan")
+gun_point = NodePath("../../../../../CanvasLayer/aim")
 
-[node name="Gun" type="MeshInstance3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1848298055]
-transform = Transform3D(-0.09956584, 0, -0.009308308, 0, 0.09999997, 0, 0.009308308, 0, -0.09956584, 0.52564466, -0.2773856, -0.5763388)
+[node name="Gun" type="MeshInstance3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base" unique_id=1848298055]
+transform = Transform3D(-0.098640375, 0.000572159, -0.016424054, -0.0048945243, 0.09438123, 0.03268368, 0.015688233, 0.03304318, -0.093069986, 0.52564466, -0.2773856, -0.5763388)
 cast_shadow = 0
 gi_mode = 0
 mesh = ExtResource("18_18p7g")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_go8vc")
+
+[node name="gun-anim" type="AnimationPlayer" parent="Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base" unique_id=1288388233]
+root_node = NodePath("../../../../../..")
+libraries/ = SubResource("AnimationLibrary_go8vc")
+
+[connection signal="animation_finished" from="Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base/gun-anim" to="Interpolated Camera/Arm/Arm Anchor/Camera/Gun-Base" method="gun_animation_finished"]

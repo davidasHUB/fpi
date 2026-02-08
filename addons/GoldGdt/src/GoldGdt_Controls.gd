@@ -6,8 +6,8 @@ class_name GoldGdt_Controls extends Node
 @export var Body : GoldGdt_Body
 @export var Move : GoldGdt_Move
 @export var View : GoldGdt_View
-@export var ray : RayCast3D
 @export var talk_area : Talk_area
+@export var gun_base:GunBase
 
 # Inputs
 var movement_input : Vector2
@@ -26,6 +26,8 @@ func can_talk_with_npc():
 
 func _input(event) -> void:
 	
+	if Input.is_action_just_pressed("shoot"):
+		gun_base.play_shoot()
 	
 	if Input.is_action_just_pressed("talk") and can_talk_with_npc():
 		talk_area.text_vis(true)

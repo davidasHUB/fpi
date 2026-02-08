@@ -2,7 +2,6 @@ class_name Player_ui extends Control
 
 
 @export var body: GoldGdt_Controls
-@onready var face: Sprite2D = $Face
 @onready var label: Label = $text/Label
 @onready var text_action = $"use-display-text/text-show"
 @onready var text_box = $"Text-box"
@@ -51,8 +50,8 @@ func display_text(text:String)->void:
 func hide_display_text():
 	text_action.hide()
 	can_talk=false
-
-func _process(_delta: float) -> void:
-	if body!=null:
-		label.text = "$"+str(99)
-		
+#
+#func _process(_delta: float) -> void:
+	#if body!=null:
+		#label.text = "$"+str(body.gun_base.current_gun)
+		#

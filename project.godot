@@ -43,6 +43,7 @@ model_point_class_save_path="trenchbroom/models"
 [global_group]
 
 NPC="non playable char"
+enemy=""
 
 [input]
 
